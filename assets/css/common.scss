@@ -1,0 +1,49 @@
+@import "theme.scss";
+
+body {
+  background: #f5f7f9;
+}
+
+html {
+  font-size: 14px;
+  line-height: 2;
+  color: #555;
+}
+h2{
+  font-size: 18px;
+}
+::selection {
+  background: $theme-color;
+  color: #fff;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+// a标签样式重置
+a {
+  text-decoration: none;
+  color: $a-color;
+}
+
+// a:visited {
+//   color: $theme-color;
+// }
+
+a:hover {
+  color: $theme-color;
+}
+
+a:active {
+  color: $theme-color;
+}
+
+// ul样式重置
+ul li {
+  list-style: none;
+}
+
