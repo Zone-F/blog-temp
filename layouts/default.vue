@@ -7,7 +7,7 @@
           <div class="site-brand-wrapper">
             <div class="site-meta">
               <div class="site-title">
-                <a href="/" class="brand" rel="start">zone98f's Blogs</a>
+                <a href="/" class="brand" rel="start">吾妻咸恩静 Blogs</a>
               </div>
               <h1 class="site-subtitle">zone_98f@qq.com</h1>
             </div>
@@ -46,33 +46,25 @@
                   </svg>&nbsp;&nbsp;关于博客
                 </nuxt-link>
               </li>
-
-              <li class="menu-item menu-item-active">
-                <nuxt-link to="/admin" no-prefetch>
-                  <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#iconzhuye" />
-                  </svg>&nbsp;&nbsp;后台首页
-                </nuxt-link>
-              </li>
             </ul>
           </nav>
         </div>
         <div class="sidebar-inner">
           <div class="site-overview">
-            <img class="site-author-image" src="/uploads/avatar.png" alt="Baldwin" />
-            <p class="site-author-name">Baldwin</p>
+            <img class="site-author-image" :src="require('~/assets/image/avatar.gif')" />
+            <p class="site-author-name">吾妻咸恩静</p>
             <p class="site-description motion-element"></p>
             <nav class="site-state motion-element">
               <div class="site-state-item site-state-posts">
                 <nuxt-link to="/archives">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">{{artLen}}</span>
                   <span class="site-state-item-name">日志</span>
                 </nuxt-link>
               </div>
 
               <div class="site-state-item site-state-tags">
                 <nuxt-link to="/categories">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">{{tagLen}}</span>
                   <span class="site-state-item-name">标签</span>
                 </nuxt-link>
               </div>
@@ -178,12 +170,15 @@
         background: #fff;
         box-shadow: initial;
         border-radius: initial;
+        position: sticky;
+        top: 10px;
         .site-overview {
           text-align: center;
           .site-author-image {
             display: block;
             margin: 0 auto;
             padding: 2px;
+            object-fit: cover;
             width: 120px;
             height: 120px;
             // height: auto;
@@ -245,5 +240,31 @@
 }
 </style>
 <script>
-export default {};
+import { getTagList } from "~/api/tag";
+import { getArticleList } from "~/api/article";
+
+export default {
+  data(){
+    return {
+      tagLen:0,
+      artLen:0
+    }
+  },
+  mounted() {
+    try {
+      let init = async ()=>{
+          let tag = await getTagList()
+          let art = await getArticleList({ pageNum: 1, pageSize: 10000 })          
+          this.tagLen = tag.data.length
+          this.artLen = art.data.length
+      }
+      init()
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  methods: {
+    
+  },
+};
 </script>

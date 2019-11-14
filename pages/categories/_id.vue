@@ -1,72 +1,66 @@
 <template>
   <div class="posts-collapse">
     <!-- {{$route.params.id}} -->
-    <div class="collection-title">
-      <h2 class="archive-year" id="archive-year-2019">2019</h2>
-    </div>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2019/03/05/standard/index/" itemprop="url">
-            <span itemprop="name">前端开发规范手册（命名、HTML、CSS、JS、ES6、React）</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2019-03-05T16:55:00+08:00"
-            content="2019-03-05"
-          >03-05</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2019/03/05/others/books/" itemprop="url">
-            <span itemprop="name">前端免费高清电子书(史上最全)</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2019-03-05T16:52:00+08:00"
-            content="2019-03-05"
-          >03-05</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" >
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2019/03/05/others/jenkins/" itemprop="url">
-            <span itemprop="name">阿里云服务器（2、jenkins实现前端自动化部署）</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2019-03-05T16:51:00+08:00"
-            content="2019-03-05"
-          >03-05</time>
-        </div>
-      </header>
-    </article>
+    <template v-for="(item,index) in list">
+      <div class="collection-title" :key="item.id">
+        <h2 class="archive-year" id="archive-year-2019">{{ index }}</h2>
+      </div>
+      <template v-for="article in item">
+        <article class="post post-type-categories" :key="article.id">
+          <header class="post-header">
+            <h3 class="post-title">
+              <nuxt-link class="post-title-link" :to="'/article/'+ article.aid._id">
+                <span itemprop="name">{{article.aid.title}}</span>
+              </nuxt-link>
+            </h3>
+            <div class="post-meta">
+              <time class="post-time">{{article.aid.createTime.substring(5,10)}}</time>
+            </div>
+          </header>
+        </article>
+      </template>
+    </template>
   </div>
 </template>
  
 <script>
+import { getListByTag } from "~/api/article";
 export default {
-  components: {}
+  validate({ params, query }) {
+    //必须含有id
+    return params.id;
+  },
+  data() {
+    return {
+      list: {}
+    };
+  },
+  mounted() {
+    getListByTag({ id: this.$route.params.id })
+      .then(res => {
+        this.list = this.getShowList(res.data);
+        console.log(this.list);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  methods: {
+    getShowList(data) {
+      let list = {};
+      data.forEach(item => {
+        console.log(item);
+
+        // item.createTime = moment(item.createTime).format("YYYY-MM-DD");
+        let current = item.aid.createTime.substring(0, 4);
+        if (!list[current]) {
+          list[current] = [];
+        }
+        list[current].push(item);
+      });
+      return list;
+    }
+  }
 };
 </script>
  

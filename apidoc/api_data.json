@@ -172,6 +172,42 @@
   },
   {
     "type": "post",
+    "url": "/article/tag",
+    "title": "获取文章",
+    "name": "getArticleByTag",
+    "group": "Article",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>标签_id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>[].</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "server/controller/article.js",
+    "groupTitle": "Article"
+  },
+  {
+    "type": "post",
     "url": "/article",
     "title": "新增文章",
     "name": "newArticle",

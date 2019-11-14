@@ -2,215 +2,65 @@
   <div id="posts" class="posts-collapse">
     <span class="archive-move-on"></span>
 
-    <span class="archive-page-counter">嗯..! 目前共计 20 篇日志。 继续努力。</span>
-
-    <div class="collection-title">
-      <h2 class="archive-year" id="archive-year-2019">2019</h2>
-    </div>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2019/03/05/standard/index/" itemprop="url">
-            <span itemprop="name">前端开发规范手册（命名、HTML、CSS、JS、ES6、React）</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2019-03-05T16:55:00+08:00"
-            content="2019-03-05"
-          >03-05</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2019/03/05/others/books/" itemprop="url">
-            <span itemprop="name">前端免费高清电子书(史上最全)</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2019-03-05T16:52:00+08:00"
-            content="2019-03-05"
-          >03-05</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2019/03/05/others/jenkins/" itemprop="url">
-            <span itemprop="name">阿里云服务器（2、jenkins实现前端自动化部署）</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2019-03-05T16:51:00+08:00"
-            content="2019-03-05"
-          >03-05</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2019/03/05/others/nginx/" itemprop="url">
-            <span itemprop="name">阿里云服务器（1、nginx配置实战）</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2019-03-05T16:50:00+08:00"
-            content="2019-03-05"
-          >03-05</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2019/03/05/tools/SourceTree/" itemprop="url">
-            <span itemprop="name">还在记git命令？快试试SourceTree</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2019-03-05T16:48:00+08:00"
-            content="2019-03-05"
-          >03-05</time>
-        </div>
-      </header>
-    </article>
-
-    <div class="collection-title">
-      <h2 class="archive-year" id="archive-year-2018">2018</h2>
-    </div>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2018/08/15/tools/vscode/" itemprop="url">
-            <span itemprop="name">强大的VS Code</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2018-08-15T10:25:00+08:00"
-            content="2018-08-15"
-          >08-15</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2018/04/27/javascript/var-before/" itemprop="url">
-            <span itemprop="name">js中的声明提前</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2018-04-27T22:34:00+08:00"
-            content="2018-04-27"
-          >04-27</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2018/04/19/es6/async/" itemprop="url">
-            <span itemprop="name">ES6处理异步的一些机制</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2018-04-19T18:06:00+08:00"
-            content="2018-04-19"
-          >04-19</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a
-            class="post-title-link"
-            href="/2018/04/17/interview/full-knowledge-interview/"
-            itemprop="url"
-          >
-            <span itemprop="name">面试知识点大全(2018)</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2018-04-17T15:11:00+08:00"
-            content="2018-04-17"
-          >04-17</time>
-        </div>
-      </header>
-    </article>
-
-    <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-      <header class="post-header">
-        <h3 class="post-title">
-          <a class="post-title-link" href="/2018/04/11/react/questions/" itemprop="url">
-            <span itemprop="name">react中遇到的一些问题的解答</span>
-          </a>
-        </h3>
-
-        <div class="post-meta">
-          <time
-            class="post-time"
-            itemprop="dateCreated"
-            datetime="2018-04-11T10:48:00+08:00"
-            content="2018-04-11"
-          >04-11</time>
-        </div>
-      </header>
-    </article>
+    <span class="archive-page-counter">嗯..! 目前共计 {{total}} 篇日志。 继续努力。</span>
+    <template v-for="(item,index) in list">
+      <div class="collection-title" :key="item.id">
+        <h2 class="archive-year" id="archive-year-2019">{{ index }}</h2>
+      </div>
+      <template v-for="article in item">
+        <article class="post post-type-categories" :key="article.id">
+          <header class="post-header">
+            <h3 class="post-title">
+              <nuxt-link class="post-title-link" :to="'/article/'+ article._id">
+                <span itemprop="name">{{article.title}}</span>
+              </nuxt-link>
+            </h3>
+            <div class="post-meta">
+              <time
+                class="post-time"
+              >{{article.createTime.substring(5,10)}}</time>
+            </div>
+          </header>
+        </article>
+      </template>
+    </template>
   </div>
 </template>
  
 <script>
+import { getArticleList } from "~/api/article";
+let moment = require("moment");
 export default {
-  components: {}
+  data() {
+    return {
+      list: {},
+      total: 0
+    };
+  },
+  mounted() {
+    getArticleList({ pageNum: 1, pageSize: 10000 })
+      .then(res => {
+        this.total = res.total;
+        this.list = this.getShowList(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  methods: {
+    getShowList(data) {
+      let list = {};
+      data.forEach(item => {
+        item.createTime = moment(item.createTime).format("YYYY-MM-DD");
+        let current = item.createTime.substring(0, 4);
+        if (!list[current]) {
+          list[current] = [];
+        }
+        list[current].push(item);
+      });
+      return list;
+    }
+  }
 };
 </script>
  

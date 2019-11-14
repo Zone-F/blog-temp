@@ -8,7 +8,7 @@ const mongoose = require("mongoose")
 const resMsg = require("../utils/utils").resMsg
 
 class Article {
-  constructor() {}
+  constructor() { }
   // 新增文章
   async newArticle(params) {
     //未实现事务操作
@@ -20,17 +20,16 @@ class Article {
       }).save()
       // 更新文章标签中间表
       let data = [];
-      let tagArray = params.tags.split(",");
-      tagArray.forEach((item, index) => {
+      params.tags.forEach((item, index) => {
         data.push({
           aid: res._id,
-          tid: mongoose.Types.ObjectId(tagArray[index])
+          tid: mongoose.Types.ObjectId(item)
         })
       })
-      await ClassifyModle.insertMany(data);
-
+      await ClassifyModle.insertMany(data)
       return resMsg(200, '新增成功')
     } catch (err) {
+      console.log(err);
       return resMsg(500, '新增失败', err.message)
     }
   }
@@ -46,8 +45,8 @@ class Article {
         }
       };
       let tags = await ClassifyModle.find({
-          aid: params.id
-        })
+        aid: params.id
+      })
         .populate('tid')
       return {
         state: 200,
@@ -114,13 +113,14 @@ class Article {
     }
   }
   //分页获取文章列表
-  async getList(params) {    
+  async getList(params) {
     let pageNum = params.pageNum || 1,
       pageSize = params.pageSize || 10;
     try {
       let total = await ArticleModel.find()
       let res = await ArticleModel
         .find()
+        .sort({ _id: -1 })
         .skip((pageNum - 1) * pageSize)
         .limit(pageSize);
       // console.log('res',res);
@@ -133,6 +133,22 @@ class Article {
       }
     } catch (err) {
       return resMsg(500, '获取失败', err.message)
+    }
+  }
+  //根据标签获取列表
+  async getListByTag(params) {
+    try {
+      let result = await ClassifyModle
+        .find({tid: params.id})
+        .sort({ _id: -1})
+        .populate('tid')
+        .populate('aid')      
+      return {
+        state: 200,
+        data: result,
+      }
+    } catch (err) {
+      return resMsg(500, '查询失败', err.message)
     }
   }
 }

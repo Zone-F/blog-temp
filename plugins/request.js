@@ -1,5 +1,6 @@
 import axios from 'axios'
 // import qs from 'qs'
+const Cookies = require('js-cookie')
 
 
 axios.defaults.timeout = 10000
@@ -39,7 +40,7 @@ axios.interceptors.response.use(
   }
 )
 
-export function request(url, data, method, headers) {
+export function request(url, data={}, method, headers) {
   return new Promise((resolve, reject) => {
     let date = {
       url: url,
@@ -62,7 +63,13 @@ export function request(url, data, method, headers) {
     }
     if (data !== '' && method === 'put') {
       date.data = data
-    }    
+    }
+    if(Cookies.get('token')){
+      let token = Cookies.get('token')
+      Object.assign(date.data,{
+        token
+      })
+    }
     axios(date).then(res => {
       reject(res.data)
     }).catch(error => {

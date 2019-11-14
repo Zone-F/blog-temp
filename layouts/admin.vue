@@ -19,12 +19,20 @@
                 <nuxt-link to="/admin">
                   <svg class="icon" aria-hidden="true">
                     <use xlink:href="#iconzhuye" />
+                  </svg>&nbsp;&nbsp;后台首页
+                </nuxt-link>
+              </li>
+
+              <li class="menu-item menu-item-active">
+                <nuxt-link to="/admin/write">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#iconzhuye" />
                   </svg>&nbsp;&nbsp;写文章
                 </nuxt-link>
               </li>
 
               <li class="menu-item menu-item-categories">
-                <nuxt-link to="/categories">
+                <nuxt-link to="/admin/tag">
                   <svg class="icon" aria-hidden="true">
                     <use xlink:href="#iconlabel" />
                   </svg>&nbsp;&nbsp;标签管理
@@ -32,7 +40,7 @@
               </li>
 
               <li class="menu-item menu-item-archives">
-                <nuxt-link to="/archives">
+                <nuxt-link to="/admin/article">
                   <svg class="icon" aria-hidden="true">
                     <use xlink:href="#iconguidang" />
                   </svg>&nbsp;&nbsp;文章管理

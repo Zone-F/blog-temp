@@ -1,4 +1,5 @@
 const Article = require('../model/article')
+const checkToken = require('../utils/utils').checkToken
 
 class ArticleController {
   constructor() {}
@@ -12,7 +13,10 @@ class ArticleController {
    * @apiParam {String} tags '_tid1,tid2'.
    */
   newArticle(ctx, next) {
-    return async (ctx, body) => {
+    return async (ctx, body) => {  
+      if(!checkToken(ctx)){
+        return;
+      }
       const article = new Article();
       const result = await article.newArticle(ctx.request.body);
       ctx.body = result;
@@ -48,6 +52,9 @@ class ArticleController {
    */
   delArticle(ctx, next) {
     return async (ctx, body) => {
+      if(!checkToken(ctx)){
+        return;
+      }
       const article = new Article();
       const result = await article.delArticle(ctx.request.body);
       ctx.body = result;
@@ -65,6 +72,9 @@ class ArticleController {
    */
   putArticle(ctx, next) {
     return async (ctx, body) => {
+      if(!checkToken(ctx)){
+        return;
+      }
       const article = new Article();
       const result = await article.putArticle(ctx.request.body);
       ctx.body = result;
@@ -87,6 +97,21 @@ class ArticleController {
       const article = new Article();
       const result = await article.getList(ctx.request.body);
       // ctx.set("Content-Type", "application/json") 
+      ctx.body = result;
+    }
+  }
+  /**
+   * @api {post} /article/tag 根据标签获取文章列表
+   * @apiName getArticleByTag
+   * @apiGroup Article
+   *
+   * @apiParam {String} id 标签_id.
+   * @apiSuccess {Object} data [].
+   */
+  getListByTag(ctx, next) {
+    return async (ctx, body) => {
+      const article = new Article();
+      const result = await article.getListByTag(ctx.request.body);
       ctx.body = result;
     }
   }

@@ -12,7 +12,7 @@
             <ul class="category-list">
               <li class="category-list-item" v-for="tag in list" :key="tag._id">
                 <nuxt-link class="category-list-link" :to="{path:`/categories/${tag._id}`}">{{tag.name}}</nuxt-link>
-                <span class="category-list-count">（1）</span>
+                <!-- <span class="category-list-count">（1）</span> -->
               </li>
             </ul>
           </div>

@@ -4,8 +4,8 @@
       <template v-for="article in list">
         <article class="post" :key="article._id">
           <header class="post-header">
-            <h2 class="post-title" itemprop="name headline">
-              <a class="post-title-link" href="/2019/03/05/standard/index/">{{article.title}}</a>
+            <h2 class="post-title">
+              <nuxt-link class="post-title-link" :to="'/article/'+ article._id">{{article.title}}</nuxt-link>
             </h2>
 
             <div class="post-meta">
@@ -14,36 +14,9 @@
                   <use xlink:href="#iconshijian1" />
                 </svg>
                 <span class="post-meta-item-text">发表于</span>
-                <time
-                  title="创建于"
-                  itemprop="dateCreated datePublished"
-                  datetime="2019-03-05T16:55:00+08:00"
-                >{{article.createTime}}</time>
+                <time>{{article.createTime}}</time>
               </span>
-
-              <!-- <span class="post-category">
-                <span class="post-meta-divider">|</span>
-
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#iconxinbaniconshangchuan-" />
-                </svg>
-
-                <span class="post-meta-item-text">分类于</span>
-
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Standard/" itemprop="url" rel="index">
-                    <span itemprop="name">
-                      <ins>Standard</ins>
-                    </span>
-                  </a>
-                </span>
-              </span>-->
-
-              <span
-                id="/2019/03/05/standard/index/"
-                class="leancloud_visitors"
-                data-flag-title="前端开发规范手册（命名、HTML、CSS、JS、ES6、React）"
-              >
+              <span class="leancloud_visitors">
                 <span class="post-meta-divider">|</span>
                 <svg class="icon" aria-hidden="true">
                   <use xlink:href="#iconyueduliang" />
@@ -51,15 +24,14 @@
 
                 <span class="post-meta-item-text">阅读次数:</span>
 
-                <span class="leancloud-visitors-count">549</span>
+                <span class="leancloud-visitors-count">暂无统计</span>
               </span>
             </div>
           </header>
           <div class="post-body">
-            <div v-html="article.body"></div>
-            <!-- {{article.body}} -->
+            {{article.body.replace(/<[^>]+>/g,"")}}
             <div class="post-button text-center">
-              <a class="btn" href="/2019/03/05/standard/index/#more" rel="contents">阅读全文 »</a>
+              <nuxt-link class="btn" :to="'/article/'+ article._id">阅读全文 »</nuxt-link>
             </div>
           </div>
           <footer class="post-footer">
@@ -69,7 +41,11 @@
       </template>
     </section>
     <div class="page-block">
-      <el-pagination color="red" layout="prev, pager, next" :total="50"></el-pagination>
+      <el-pagination
+        layout="prev, pager, next"
+        :total="page.total"
+        @current-change="handleCurrentChange"
+      ></el-pagination>
     </div>
   </div>
 </template>
@@ -181,33 +157,40 @@
 
 <script>
 import { getArticleList } from "~/api/article";
+let moment = require("moment");
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      page: {
+        current: 1,
+        total: 10
+      }
     };
   },
   created() {},
   mounted() {
-    // try {
-    //   async function getData () {
-    //     let { data } = await getArticleList();
-    //     console.log(1);
-    //     console.log("data", data);
-    //   };
-    //   getData()
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    getArticleList()
-      .then(res => {
-        this.list = res.data;
-        // console.log(this.list);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.init();
   },
-  methods: {}
+  methods: {
+    handleCurrentChange(val) {
+      this.init(val);
+    },
+    init(pageNum = 1, pageSize = 10) {
+      getArticleList({ pageNum, pageSize })
+        .then(res => {
+          let list = res.data.map(item => {
+            item.createTime = moment(item.createTime).format("YYYY-MM-DD");
+            return item;
+          });
+          this.list = list;
+          this.page.total = res.total;
+          this.page.current = res.pageNum;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
 };
 </script>

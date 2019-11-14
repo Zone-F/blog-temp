@@ -1,4 +1,5 @@
 const TagModel = require('../model/tag')
+const checkToken = require('../utils/utils').checkToken
 
 class TagController {
   constructor() {}
@@ -21,6 +22,9 @@ class TagController {
    */
   newTag() {
     return async (ctx, next) => {
+      if(!checkToken(ctx)){
+        return;
+      }
       let Tag = new TagModel()
       let result = await Tag.newTag(ctx.request.body)
       ctx.body = result;
@@ -35,6 +39,9 @@ class TagController {
    */
   putTag() {
     return async (ctx, next) => {
+      if(!checkToken(ctx)){
+        return;
+      }
       let Tag = new TagModel()
       let result = await Tag.putTag(ctx.request.body)
       ctx.body = result;
@@ -49,6 +56,9 @@ class TagController {
    */
   delTag() {
     return async (ctx, next) => {
+      if(!checkToken(ctx)){
+        return;
+      }
       let Tag = new TagModel()
       let result = await Tag.delTag(ctx.request.body)
       ctx.body = result;
