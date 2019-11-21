@@ -6,7 +6,7 @@ let options ={}
 
 if(process.server){
 
-　　options.baseURL=`http://127.0.0.1:6000`
+　　options.baseURL=`http://127.0.0.1:600`
 
 }
 
