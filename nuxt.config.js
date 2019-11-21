@@ -2,7 +2,7 @@ module.exports = {
   mode: 'universal',
   server: {
     port: 3000, // default: 3000
-    host: '120.79.25.54' // default: localhost
+    host: '0.0.0.0' // default: localhost
     // host: '127.0.0.1' // default: localhost
   },
   /*
