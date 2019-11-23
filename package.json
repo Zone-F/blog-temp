@@ -5,9 +5,9 @@
   "author": "Zone-F",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "dev": "cross-env NODE_ENV=development HSOT=127.0.0.1 nodemon server/index.js --watch server",
     "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
+    "start": "cross-env NODE_ENV=production HOST=0.0.0.0 node server/index.js",
     "pm2": "pm2 start npm --name 'blog' -- run start",
     "generate": "nuxt generate",
     "test": "jest",
