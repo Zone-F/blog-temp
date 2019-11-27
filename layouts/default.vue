@@ -7,9 +7,9 @@
           <div class="site-brand-wrapper">
             <div class="site-meta">
               <div class="site-title">
-                <a href="/" class="brand" rel="start">吾妻咸恩静 Blogs</a>
+                <a href="/" class="brand" rel="start">zone_98f Blogs</a>
               </div>
-              <h1 class="site-subtitle">zone_98f@qq.com</h1>
+              <!-- <h1 class="site-subtitle">zone_98f@qq.com</h1> -->
             </div>
           </div>
 
@@ -52,7 +52,7 @@
         <div class="sidebar-inner">
           <div class="site-overview">
             <img class="site-author-image" :src="require('~/assets/image/avatar.gif')" />
-            <p class="site-author-name">吾妻咸恩静</p>
+            <p class="site-author-name">zone_98f</p>
             <p class="site-description motion-element"></p>
             <nav class="site-state motion-element">
               <div class="site-state-item site-state-posts">

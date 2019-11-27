@@ -5,12 +5,13 @@ const Cookies = require('js-cookie')
 
 axios.defaults.timeout = 10000
 axios.defaults.responseType = 'json'
-console.log('process变量',process.env.NODE_ENV);
-if(process.env.NODE_ENV == 'production'){
-  axios.defaults.baseURL = 'http://120.79.25.54:600'
-}else{
-  axios.defaults.baseURL = 'http://127.0.0.1:600'
-}
+// console.log('process变量',process.env.NODE_ENV);
+// if(process.env.NODE_ENV == 'production'){
+//   axios.defaults.baseURL = 'http://120.79.25.54:600'
+// }else{
+//   axios.defaults.baseURL = 'http://127.0.0.1:600'
+// }
+axios.defaults.baseURL = 'http://127.0.0.1:3000'
 /**
  * 请求拦截器
  */

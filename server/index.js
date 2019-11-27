@@ -9,10 +9,10 @@ const config = require('../nuxt.config.js')
 config.dev = app.env !== 'production'
 
 async function start () {
-  // //连接数据库
-  // require('./db/connect')
-  // //注册路由
-  // require("./controller/index")(app);
+  //连接数据库
+  require('./db/connect')
+  //注册路由
+  require("./controller/index")(app);
 
   // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
