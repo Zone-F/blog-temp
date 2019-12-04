@@ -73,7 +73,7 @@
         </div>
       </div>
       <div class="right">
-        <nuxt />
+          <nuxt />
       </div>
     </div>
   </div>

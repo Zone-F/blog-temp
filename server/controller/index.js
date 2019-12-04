@@ -8,6 +8,20 @@ const TagController = new Tag();
 const Login = require('./login')
 const LoginController = new Login()
 module.exports = (app) => {
+  app.use(async (ctx, next) => {
+    ctx.set('Access-Control-Allow-Origin', '*');
+    await next();
+  });
+  app.use(async (ctx, next) => {
+    ctx.set('Access-Control-Allow-Origin', '*');
+    ctx.set('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+    ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    if (ctx.method == 'OPTIONS') {
+      ctx.body = 200;
+    } else {
+      await next();
+    }
+  });
   app.use(bodyParser())
   router
     // 文章相关
@@ -23,9 +37,9 @@ module.exports = (app) => {
     .put('/tag', TagController.putTag())
     .del('/tag', TagController.delTag())
     //登录
-    .post('/login',LoginController.login())
-    .post('/tokentest',async(ctx,next)=>{
-      if(checkToken(ctx.request.body.token)){
+    .post('/login', LoginController.login())
+    .post('/tokentest', async (ctx, next) => {
+      if (checkToken(ctx.request.body.token)) {
         return;
       }
     })

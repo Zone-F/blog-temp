@@ -159,6 +159,7 @@
 import { getArticleList } from "~/api/article";
 let moment = require("moment");
 export default {
+  name:"index",
   data() {
     return {
       list: [],
@@ -168,7 +169,6 @@ export default {
       }
     };
   },
-  created() {},
   mounted() {
     this.init();
   },
@@ -191,6 +191,6 @@ export default {
           console.log(err);
         });
     }
-  }
+  },
 };
 </script>

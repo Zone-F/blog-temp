@@ -5,7 +5,7 @@ const Cookies = require('js-cookie')
 
 axios.defaults.timeout = 10000
 axios.defaults.responseType = 'json'
-console.log('process变量',process.env.NODE_ENV);
+// console.log('process变量',process.env.NODE_ENV);
 if(process.env.NODE_ENV == 'production'){
   axios.defaults.baseURL = 'http://120.79.25.54:3000'
 }else{

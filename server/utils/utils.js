@@ -9,19 +9,19 @@ const resMsg= (state,message,err)=>{
   }
   return msg
 }
-const checkToken = (ctx)=>{  
+const checkToken = (ctx)=>{
+  let pass = null;
   jwt.verify(ctx.request.body.token, '6araGo', (err, decoded) => {
     if (err) {
-      console.log('token错误',err);
       ctx.body =  {
         state:501,
         msg:'token错误或过期'
       };
-      return false;
+      pass = false;
     }
-    console.log('通过验证',decoded);
-    return true;
+    pass = true;
   })
+  return pass;
 }
 module.exports = {
   resMsg,

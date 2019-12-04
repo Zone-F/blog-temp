@@ -20,8 +20,8 @@ export default {
   layout: "login",
   data() {
     return {
-      name: "",
-      password: ""
+      name: "吾妻咸恩静",
+      password: "090729"
     };
   },
   methods: {

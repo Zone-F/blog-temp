@@ -1,6 +1,6 @@
 <template>
   <div class="new-article">
-    
+    后台首页
   </div>
 </template>
  
